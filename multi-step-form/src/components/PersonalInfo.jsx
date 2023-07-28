@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 export default function PersonalInfo({
   name,
@@ -7,7 +6,7 @@ export default function PersonalInfo({
   setName,
   setNumber,
   setEmail,
-  label,
+
   labelEmail,
   labelName,
   labelPhone,
@@ -22,14 +21,6 @@ export default function PersonalInfo({
       </div>
 
       <form className="personalInfo-Form">
-        {label && (
-          <label
-            className="personalInfo-label error"
-            style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
-          >
-            * All fields are required!
-          </label>
-        )}
         <label className="personalInfo-label">Name</label>
         <input
           className="personalInfo-input"
@@ -37,7 +28,11 @@ export default function PersonalInfo({
           placeholder="e.g. Stephen King"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={{ border: ` ${labelName ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"}` }}
+          style={{
+            border: ` ${
+              labelName ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"
+            }`,
+          }}
         />
         {labelName && (
           <label
@@ -55,7 +50,11 @@ export default function PersonalInfo({
           placeholder="e.g. Stephenking@lorem.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          style={{ border: ` ${labelEmail ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"}` }}
+          style={{
+            border: ` ${
+              labelEmail ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"
+            }`,
+          }}
         />
         {labelEmail && (
           <label
@@ -73,7 +72,11 @@ export default function PersonalInfo({
           placeholder="e.g. +1 234 567 890"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
-          style={{ border: ` ${labelPhone ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"}` }}
+          style={{
+            border: ` ${
+              labelPhone ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"
+            }`,
+          }}
         />
         {labelPhone && (
           <label

@@ -11,7 +11,6 @@ const steps = [
 
 function App() {
   const [curStep, setCurStep] = useState(1);
-  const [label, setLabel] = useState(false);
 
   const [labelEmail, setLabelEmail] = useState(false);
   const [labelName, setLabelName] = useState(false);
@@ -91,7 +90,7 @@ function App() {
         handlePlus={handlePlus}
         handleConfirm={handleConfirm}
         confirm={confirm}
-        label={label}
+
         name={name}
         setName={setName}
         setEmail={setEmail}

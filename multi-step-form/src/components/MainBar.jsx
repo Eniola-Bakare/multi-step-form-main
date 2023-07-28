@@ -12,7 +12,6 @@ export default function MainBar({
   handleMinus,
   handlePlus,
   handleConfirm,
-  label,
 
   name,
   email,
@@ -37,7 +36,7 @@ export default function MainBar({
           setNumber={setNumber}
           email={email}
           number={number}
-          label={label}
+
 
           labelEmail={labelEmail}
           labelName={labelName}
