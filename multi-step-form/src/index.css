@@ -66,8 +66,9 @@ body {
   align-self: center;
   color: hsl(229, 24%, 87%);
 }
-.step-number:hover,
-.step-number-div:hover {
+
+.step-number.active,
+.step-number-div.active {
   background-color: hsl(206, 94%, 87%);
   color: hsl(213, 96%, 18%);
 }
@@ -87,6 +88,7 @@ body {
 /* MAIN */
 .main {
   padding-block: 30px;
+  width: 70%;
 }
 
 /* PERSONAL INFO*/
@@ -96,7 +98,6 @@ body {
 .summary-container,
 .thankYou-container {
   height: 75%;
-  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -132,15 +133,19 @@ body {
 }
 
 .personalInfo-input {
-  width: 70%;
   padding: 12px;
   border-radius: 5px;
-  border: 1.5px solid hsl(229, 24%, 87%);
+  /* border: 1px solid hsl(229, 24%, 87%); */
   margin-top: 8px;
   margin-bottom: 15px;
   font-size: 12px;
 }
-
+.personalInfo-input:focus{
+  outline-color: hsl(243, 100%, 62%);
+}
+.personalInfo-label.error{
+  align-self: flex-end;
+}
 /* SELECT PLAN */
 
 .plan-cards {
@@ -154,6 +159,10 @@ body {
   border-radius: 3px;
   padding: 15px;
   padding-bottom: 8px;
+  cursor: pointer;
+}
+.plan-card:hover{
+  scale: 1.1;
 }
 .plan-image {
   width: 30%;
@@ -303,3 +312,45 @@ body {
   text-align: center;
   line-height: 140%;
 }
+
+/* BUTTONS */
+.btn-div {
+  display: flex;
+  margin-top: 50px;
+  justify-content: flex-end;
+}
+.btn-div.plus {
+  justify-content: space-between;
+}
+
+.btn-goBack {
+  background-color: transparent;
+  border: transparent;
+  color: hsl(231, 11%, 63%);
+}
+.btn-goBack:hover {
+  cursor: pointer;
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.btn-next,
+.btn-confirm {
+  border: transparent;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  color: white;
+}
+.btn-next{
+  background-color: hsl(213, 96%, 18%);
+}
+
+.btn-next:hover,
+.btn-confirm:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+.btn-confirm{
+  background-color: hsl(243, 100%, 62%);
+}
+
