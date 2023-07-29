@@ -16,12 +16,17 @@ function App() {
   const [labelName, setLabelName] = useState(false);
   const [labelPhone, setLabelPhone] = useState(false);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
+  const [name, setName] = useState("EniolaOluwa Bakare");
+  const [email, setEmail] = useState("eebakare@gmail.com");
+  const [number, setNumber] = useState("09016248463");
+
+  const [price, setPrice] = useState("");
+  const [planType, setPlanType] = useState("");
+  const [planTypeObj, setPlanTypeObj] = useState({});
+
+  const [addOnArrPrice, setAddOnArrPrice] = useState([]);
 
   function handleCurStep(setStep) {
-
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!name || name.split(" ").length < 2) {
@@ -43,6 +48,10 @@ function App() {
       return;
     } else {
       setLabelPhone(false);
+    }
+    // Validation for step 2
+    if (curStep === 2) {
+      if (!price || !planType) return;
     }
     setCurStep(setStep);
   }
@@ -50,9 +59,8 @@ function App() {
     setCurStep((prevStep) => --prevStep);
   }
   function handlePlus({ name, email, number }) {
-
+    // Validation for step 1
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!name || name.split(" ").length < 2) {
       setLabelName(true);
       return;
@@ -74,8 +82,16 @@ function App() {
       setLabelPhone(false);
     }
 
-      setCurStep((prevStep) => ++prevStep);
-    
+    //////////////////////////////////////////////////////////// Validation for step 2
+    if (curStep === 2) {
+      if (!price || !planType) return;
+    }
+    ////////////////////////////////////////////////////////// Validation for step 3
+    if (curStep === 3) {
+      console.log(addOnArrPrice, "addon obj");
+      console.log(planTypeObj, planType, "plan type", typeof planTypeObj);
+    }
+    setCurStep((prevStep) => ++prevStep);
   }
   function handleConfirm() {
     setCurStep(null);
@@ -86,11 +102,11 @@ function App() {
       <SideBar steps={steps} curStep={curStep} addClick={handleCurStep} />
       <MainBar
         curStep={curStep}
+        setCurStep={setCurStep}
         handleMinus={handleMinus}
         handlePlus={handlePlus}
         handleConfirm={handleConfirm}
         confirm={confirm}
-
         name={name}
         setName={setName}
         setEmail={setEmail}
@@ -100,6 +116,14 @@ function App() {
         labelEmail={labelEmail}
         labelName={labelName}
         labelPhone={labelPhone}
+        price={price}
+        setPrice={setPrice}
+        planType={planType}
+        setPlanType={setPlanType}
+        addOnArrPrice={addOnArrPrice}
+        setAddOnArrPrice={setAddOnArrPrice}
+        setPlanTypeObj={setPlanTypeObj}
+        planTypeObj={planTypeObj}
       />
     </div>
   );

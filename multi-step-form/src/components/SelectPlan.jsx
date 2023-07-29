@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import arcade from "../assets/images/icon-arcade.svg";
 import advanced from "../assets/images/icon-advanced.svg";
 import pro from "../assets/images/icon-pro.svg";
@@ -6,24 +8,52 @@ const plans = [
   {
     image: arcade,
     title: "Arcade",
-    price: "$9/mo",
-    free: "2 months free"
+    price: 9,
   },
   {
     image: advanced,
-    title: "Arcade",
-    price: "$12/mo",
-    free: "2 months free"
+    title: "Advanced",
+    price: 12,
   },
   {
     image: pro,
     title: "Pro",
-    price: "$15/mo",
-    free: "2 months free"
+    price: 15,
   },
 ];
 
-export default function SelectPlan() {
+export default function SelectPlan({
+  price,
+  planType,
+  setPrice,
+  setPlanType,
+  toggleBtn,
+  setToggleBtn,
+  setPlanTypeObj,
+}) {
+  const [plansArr, setPlansArr] = useState([...plans]);
+
+  function handleToggle() {
+    if (!toggleBtn) {
+      setPlansArr((prevArr) => {
+        return prevArr.map((eachPlan) => {
+          return {
+            ...eachPlan,
+            free: "2 months free",
+            // price: eachPlan.price * 10,
+          };
+        });
+      });
+    } else {
+      setPlansArr(plansArr);
+    }
+    setToggleBtn((prev) => !prev);
+  }
+  function handleDetails(price, title, plan) {
+    setPlanType(title);
+    setPrice(price);
+    setPlanTypeObj(plan);
+  }
   return (
     <section className="selectPlan-container">
       <div className="selectPlan-title-div">
@@ -34,24 +64,52 @@ export default function SelectPlan() {
       </div>
 
       <div className="plan-cards">
-        {plans.map((plan, i) => {
+        {plansArr.map((plan, i) => {
           return (
-            <div className="plan-card" key={i + 3}>
+            <div
+              className="plan-card"
+              key={i + 3}
+              onClick={() => handleDetails(plan.price, plan.title, plan)}
+            >
               <img className="plan-image" src={plan.image} alt={plan.title} />
               <p className="plan-title">{plan.title}</p>
-              <p className="plan-price">{plan.price}</p>
-              <p className="plan-year-free">{plan.free}</p>
+              <p className="plan-price">{`$${
+                toggleBtn ? plan.price * 10 : plan.price
+              }/${toggleBtn ? "yr" : "mo"}`}</p>
+              {toggleBtn ? <p className="plan-year-free">{plan.free}</p> : ""}
             </div>
           );
         })}
       </div>
 
-      <div className="plan-type-div">
-        <p>
-          <span className="plan-type">Monthly</span>
-          <span> -- </span>
-          <span className="plan-type">Yearly</span>
-        </p>
+      <div className="plan-type-div" onClick={handleToggle}>
+        {/* <p> */}
+        <span
+          className="plan-type"
+          style={{
+            color: `${
+              !toggleBtn ? "hsl(213, 96%, 18%)" : "hsl(231, 11%, 63%)"
+            }`,
+          }}
+        >
+          Monthly
+        </span>
+        <div className="toggle">
+          {!toggleBtn ? (
+            <div className="toggle-left"></div>
+          ) : (
+            <div className="toggle-right"></div>
+          )}
+        </div>
+        <span
+          className="plan-type"
+          style={{
+            color: `${toggleBtn ? "hsl(213, 96%, 18%)" : "hsl(231, 11%, 63%)"}`,
+          }}
+        >
+          Yearly
+        </span>
+        {/* </p> */}
       </div>
     </section>
   );
