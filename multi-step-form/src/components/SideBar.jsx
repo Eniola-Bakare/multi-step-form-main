@@ -14,7 +14,7 @@ export default function SideBar({ steps, curStep, addClick }) {
               {step.id}
             </p>
           </div>
-          <div>
+          <div className="side-Texts">
             <p className="step-num-text">Step {step.id}</p>
             <p className="step-title">{step.title}</p>
           </div>

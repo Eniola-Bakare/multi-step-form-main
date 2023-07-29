@@ -7,28 +7,13 @@ import SelectPlan from "./SelectPlan";
 import Summary from "./Summary";
 import Thanks from "./Thanks";
 
-const addOns = [
-  {
-    title: "Online service",
-    desc: "Access to multiplayer games",
-    price: 1,
-    id: 0,
-  },
-  { title: "Large storage", desc: " Extra storage", price: 2, id: 1 },
-  {
-    title: "Customizable profile",
-    desc: "Custom theme on your profile",
-    price: 2,
-    id: 2,
-  },
-];
-
 export default function MainBar({
   curStep,
   setCurStep,
   handleMinus,
   handlePlus,
   handleConfirm,
+  handleCurStep,
 
   name,
   email,
@@ -49,9 +34,13 @@ export default function MainBar({
   setAddOnArrPrice,
   planTypeObj,
   setPlanTypeObj,
+  toggleBtn,
+  setToggleBtn,
+  addOnState,
+  setAddOnState,
+  addOns,
 }) {
-  const [toggleBtn, setToggleBtn] = useState(false);
-  const [addOnState, setAddOnState] = useState(addOns.map((addOn) => false));
+
 
   return (
     <main className="main">
@@ -99,7 +88,7 @@ export default function MainBar({
           setCurStep={setCurStep}
         />
       )}
-      {curStep === null && <Thanks name={name} curStep={curStep} />}
+      {curStep === null && <Thanks name={name} curStep={curStep} handleCurStep={handleCurStep} />}
 
       {curStep === null || (
         <Button

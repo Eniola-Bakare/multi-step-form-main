@@ -5,8 +5,9 @@
   font-family: "Ubuntu", sans-serif;
 }
 body {
-  max-width: 1440px;
-  /* background-color: pink; */
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
 }
 #root {
   height: 100vh;
@@ -17,13 +18,13 @@ body {
 }
 .app {
   display: grid;
-  height: 100%;
+  align-items: center;
   width: 95%;
+  height: 100%;
   grid-template-columns: 1fr 2fr;
-  column-gap: 10px;
+  column-gap: 60px;
 
   padding: 10px;
-  border-radius: 12px;
 
   background-color: hsl(0, 0%, 100%);
 }
@@ -35,7 +36,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   object-position: center;
-  height: 90%;
+  height: 95%;
 
   display: flex;
   flex-direction: column;
@@ -89,10 +90,11 @@ body {
 .main {
   padding-block: 30px;
   width: 70%;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-self: center;
+  background-color: #fff;
 }
 
 /* PERSONAL INFO*/
@@ -101,10 +103,9 @@ body {
 .addOn-container,
 .summary-container,
 .thankYou-container {
-  height: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .personalInfo-title,
 .selectPlan-title,
@@ -156,18 +157,24 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 15px;
+  height: 50%;
 }
 
 .plan-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   border: 1px solid hsl(229, 24%, 87%);
+  background-color: hsl(231, 100%, 99%);
   border-radius: 3px;
   padding: 15px;
-  padding-bottom: 8px;
+  padding-bottom: 20px;
   cursor: pointer;
+  height: 100%;
 }
 .plan-card:hover {
   scale: 1.1;
-  border: 0.5px solid hsl(243, 100%, 62%);
+  border: 2px solid hsl(243, 100%, 62%);
 }
 .plan-card:active {
   border: 0.5px solid hsl(243, 100%, 62%);
@@ -178,11 +185,12 @@ body {
 }
 .plan-title {
   font-weight: 500;
+  font-size: 18px;
   color: hsl(213, 96%, 18%);
   margin-bottom: 5px;
 }
 .plan-price {
-  font-size: 11px;
+  font-size: 12px;
   color: hsl(231, 11%, 63%);
 }
 .plan-type-div {
@@ -200,7 +208,7 @@ body {
   color: hsl(213, 96%, 18%);
 }
 .plan-year-free {
-  font-size: 10px;
+  font-size: 11px;
   margin-top: 5px;
   color: hsl(213, 96%, 18%);
   margin-bottom: 8px;
@@ -250,6 +258,7 @@ body {
 .cart-details {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 .cart-plan-addOn {
   display: flex;
@@ -327,6 +336,8 @@ body {
   display: flex;
   margin-top: 30px;
   justify-content: flex-end;
+  align-self: center;
+  width: 90%;
 }
 .btn-div.plus {
   justify-content: space-between;
@@ -390,4 +401,130 @@ body {
   border-radius: 10px;
   margin: 3px 0px 3px 16px;
   transition: 0.45s;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 992px) {
+  .app {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .main {
+    padding-block: 20px;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .main {
+    padding-block: 18px;
+    width: 100%;
+  }
+  .app {
+    column-gap: 0px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 676px) {
+  #root {
+    height:0%;
+  }
+  .app {
+    height:0%;
+    background-color: hsl(217, 100%, 97%);
+    display: flex;
+    flex-direction: column;
+    background-image: url(./assets/images/bg-sidebar-mobile.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    object-position: right;
+  }
+  .side-bar {
+    width: 100%;
+    background-image: none;
+    height: 5%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 0;
+  }
+  .side-Texts {
+    display: none;
+  }
+  .main {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 70px;
+    border-radius: 10px;
+    box-shadow: -8px 25px 36px 11px rgba(0, 0, 0, 0.24);
+  }
+  .personalInfo-container,
+  .selectPlan-container,
+  .addOn-container,
+  .summary-container,
+  .thankYou-container {
+  }
+  .personalInfo-text,
+  .selectPlan-text,
+  .addOn-title-text,
+  .summary-text,
+  .thankYou-text {
+    font-size: 16px;
+  }
+  .plan-cards {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  .plan-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+  }
+  .plan-title {
+    font-size: 22px;
+  }
+  .plan-price {
+    font-size: 18px;
+  }
+  .plan-year-free {
+    font-size: 16px;
+  }
+  .plan-image {
+    width: 50px;
+    padding-bottom: 10px;
+  }
+
+  .plan-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 13px;
+    padding: 15px 18px;
+    margin-bottom: 15px;
+  }
+  .thankYou-text {
+    font-size: 14px;
+  }
+  .personalInfo-label,
+  .personalInfo-label.error {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    min-width: 375px;
+  }
+  .side-bar {
+    padding-bottom: 0;
+  }
 }

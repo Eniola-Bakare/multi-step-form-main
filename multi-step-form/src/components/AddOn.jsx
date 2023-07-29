@@ -1,6 +1,3 @@
-import { each } from "lodash-es";
-import { useEffect, useState } from "react";
-
 export default function AddOn({
   toggleBtn,
   setAddOnArrPrice,

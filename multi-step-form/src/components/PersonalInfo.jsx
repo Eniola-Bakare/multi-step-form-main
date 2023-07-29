@@ -1,4 +1,3 @@
-
 export default function PersonalInfo({
   name,
   email,
@@ -83,7 +82,7 @@ export default function PersonalInfo({
             className="personalInfo-label error"
             style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
           >
-            * phone number is also required
+            * Phone number is also required
           </label>
         )}
       </form>

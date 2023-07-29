@@ -8,6 +8,21 @@ const steps = [
   { id: 3, title: "Add-ons" },
   { id: 4, title: "Summary" },
 ];
+const addOns = [
+  {
+    title: "Online service",
+    desc: "Access to multiplayer games",
+    price: 1,
+    id: 0,
+  },
+  { title: "Large storage", desc: " Extra storage", price: 2, id: 1 },
+  {
+    title: "Customizable profile",
+    desc: "Custom theme on your profile",
+    price: 2,
+    id: 2,
+  },
+];
 
 function App() {
   const [curStep, setCurStep] = useState(1);
@@ -16,15 +31,17 @@ function App() {
   const [labelName, setLabelName] = useState(false);
   const [labelPhone, setLabelPhone] = useState(false);
 
-  const [name, setName] = useState("EniolaOluwa Bakare");
-  const [email, setEmail] = useState("eebakare@gmail.com");
-  const [number, setNumber] = useState("09016248463");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
 
   const [price, setPrice] = useState("");
   const [planType, setPlanType] = useState("");
   const [planTypeObj, setPlanTypeObj] = useState({});
 
   const [addOnArrPrice, setAddOnArrPrice] = useState([]);
+  const [toggleBtn, setToggleBtn] = useState(false);
+  const [addOnState, setAddOnState] = useState(addOns.map((addOn) => false));
 
   //////////////////////////////////////////////////////////// side bar functionality
   function handleCurStep(setStep) {
@@ -58,7 +75,19 @@ function App() {
     }
 
     // //////////////////////////////////////////////////////// for last step
-    if (curStep === null) return;
+    if (curStep === null) {
+      setCurStep(1);
+      setStep = 1;
+      setName("");
+      setEmail("");
+      setNumber("");
+      setPrice("");
+      setPlanType("");
+      setPlanTypeObj({});
+      setAddOnArrPrice([]);
+      setToggleBtn(false);
+      setAddOnState(addOns.map((addOn) => false));
+    }
 
     // //////////////////////////////////////////////////////// changing the sidebar number to the current view
     setCurStep(setStep);
@@ -100,7 +129,9 @@ function App() {
     setCurStep((prevStep) => ++prevStep);
   }
   function handleConfirm() {
-    setCurStep(null);
+    setTimeout(() => {
+      setCurStep(null);
+    }, 1500);
   }
 
   return (
@@ -112,7 +143,7 @@ function App() {
         handleMinus={handleMinus}
         handlePlus={handlePlus}
         handleConfirm={handleConfirm}
-        confirm={confirm}
+        handleCurStep={handleCurStep}
         name={name}
         setName={setName}
         setEmail={setEmail}
@@ -130,6 +161,11 @@ function App() {
         setAddOnArrPrice={setAddOnArrPrice}
         setPlanTypeObj={setPlanTypeObj}
         planTypeObj={planTypeObj}
+        toggleBtn={toggleBtn}
+        setToggleBtn={setToggleBtn}
+        addOnState={addOnState}
+        setAddOnState={setAddOnState}
+        addOns={addOns}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import arcade from "../assets/images/icon-arcade.svg";
 import advanced from "../assets/images/icon-advanced.svg";
@@ -72,18 +72,19 @@ export default function SelectPlan({
               onClick={() => handleDetails(plan.price, plan.title, plan)}
             >
               <img className="plan-image" src={plan.image} alt={plan.title} />
-              <p className="plan-title">{plan.title}</p>
-              <p className="plan-price">{`$${
-                toggleBtn ? plan.price * 10 : plan.price
-              }/${toggleBtn ? "yr" : "mo"}`}</p>
-              {toggleBtn ? <p className="plan-year-free">{plan.free}</p> : ""}
+              <div className="plan-texts">
+                <p className="plan-title">{plan.title}</p>
+                <p className="plan-price">{`$${
+                  toggleBtn ? plan.price * 10 : plan.price
+                }/${toggleBtn ? "yr" : "mo"}`}</p>
+                {toggleBtn ? <p className="plan-year-free">{plan.free}</p> : ""}
+              </div>
             </div>
           );
         })}
       </div>
 
-      <div className="plan-type-div" onClick={handleToggle}>
-        {/* <p> */}
+      <div className="plan-type-div">
         <span
           className="plan-type"
           style={{
@@ -94,7 +95,7 @@ export default function SelectPlan({
         >
           Monthly
         </span>
-        <div className="toggle">
+        <div className="toggle" onClick={handleToggle}>
           {!toggleBtn ? (
             <div className="toggle-left"></div>
           ) : (
@@ -109,7 +110,6 @@ export default function SelectPlan({
         >
           Yearly
         </span>
-        {/* </p> */}
       </div>
     </section>
   );
