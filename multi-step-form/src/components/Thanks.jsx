@@ -1,6 +1,6 @@
 import thankYou from "../assets/images/icon-thank-you.svg";
 
-export default function Thanks({ name }) {
+export default function Thanks({ name, curStep }) {
   return (
     <section className="thankYou-container">
       <img className="thankYou-img" src={thankYou} alt="check icon" />

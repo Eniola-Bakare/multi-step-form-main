@@ -99,7 +99,7 @@ export default function MainBar({
           setCurStep={setCurStep}
         />
       )}
-      {curStep === null && <Thanks name={name} />}
+      {curStep === null && <Thanks name={name} curStep={curStep} />}
 
       {curStep === null || (
         <Button

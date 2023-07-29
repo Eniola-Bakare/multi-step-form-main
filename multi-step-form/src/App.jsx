@@ -26,6 +26,7 @@ function App() {
 
   const [addOnArrPrice, setAddOnArrPrice] = useState([]);
 
+  //////////////////////////////////////////////////////////// side bar functionality
   function handleCurStep(setStep) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -49,17 +50,26 @@ function App() {
     } else {
       setLabelPhone(false);
     }
-    // Validation for step 2
+    ///////////////////////////////////////////////// Validation for step 2
     if (curStep === 2) {
-      if (!price || !planType) return;
+      if (setStep === 1) {
+        setCurStep(setStep);
+      } else if (!price || !planType) return;
     }
+
+    // //////////////////////////////////////////////////////// for last step
+    if (curStep === null) return;
+
+    // //////////////////////////////////////////////////////// changing the sidebar number to the current view
     setCurStep(setStep);
   }
+
+  //////////////////////////////////////// main component prev && next functionalities
   function handleMinus() {
     setCurStep((prevStep) => --prevStep);
   }
   function handlePlus({ name, email, number }) {
-    // Validation for step 1
+    ///////////////////////////////////////////////////////////////// Validation for step 1
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!name || name.split(" ").length < 2) {
       setLabelName(true);
@@ -86,11 +96,7 @@ function App() {
     if (curStep === 2) {
       if (!price || !planType) return;
     }
-    ////////////////////////////////////////////////////////// Validation for step 3
-    if (curStep === 3) {
-      console.log(addOnArrPrice, "addon obj");
-      console.log(planTypeObj, planType, "plan type", typeof planTypeObj);
-    }
+
     setCurStep((prevStep) => ++prevStep);
   }
   function handleConfirm() {

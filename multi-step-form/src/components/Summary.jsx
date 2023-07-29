@@ -8,7 +8,6 @@ export default function Summary({
   const addOnTotal = addOnArrPrice.reduce((acc, cur) => {
     return toggleBtn ? (acc += cur.price * 10) : (acc += cur.price);
   }, price);
-  console.log(addOnArrPrice, "add on arr");
   return (
     <section className="summary-container">
       <div className="summary-title-div">
