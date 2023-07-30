@@ -28,12 +28,26 @@ export default function AddOn({
       <div className="addOns-div">
         {addOns.map((addOn, i) => {
           return (
-            <div className="addOn-item" key={i * 3} id={i}>
+            <div
+              className="addOn-item"
+              key={i * 3}
+              id={i}
+              style={{
+                border: addOnState[i]
+                  ? "1.5px solid hsl(243, 100%, 62%)"
+                  : "1.25px solid hsl(229, 24%, 87%)",
+              }}
+            >
               <div className="addOn-check">
                 <input
                   type="checkbox"
                   className="addOn-check-input"
                   id={`addOnCheckbox${i}`}
+                  style={{
+                    accentColor: addOnState[i]
+                      ? "hsl(243, 100%, 62%)"
+                      : "white",
+                  }}
                   checked={addOnState[i]}
                   onChange={() => HandleAddOn(i, addOn)}
                 />

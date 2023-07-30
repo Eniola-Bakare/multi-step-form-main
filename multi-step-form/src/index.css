@@ -430,10 +430,10 @@ body {
 
 @media screen and (max-width: 676px) {
   #root {
-    height:0%;
+    height: 0%;
   }
   .app {
-    height:0%;
+    height: 0%;
     background-color: hsl(217, 100%, 97%);
     display: flex;
     flex-direction: column;
@@ -522,7 +522,7 @@ body {
 
 @media screen and (max-width: 375px) {
   body {
-    min-width: 375px;
+    min-width: 374px;
   }
   .side-bar {
     padding-bottom: 0;
