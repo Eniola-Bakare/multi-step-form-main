@@ -38,7 +38,7 @@ export default function PersonalInfo({
             className="personalInfo-label error"
             style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
           >
-            * First name and Last Name is required.
+            * First Name and Last Name is required.
           </label>
         )}
 

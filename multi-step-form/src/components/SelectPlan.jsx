@@ -34,19 +34,7 @@ export default function SelectPlan({
   const [plansArr, setPlansArr] = useState([...plans]);
 
   function handleToggle() {
-    if (!toggleBtn) {
-      setPlansArr((prevArr) => {
-        return prevArr.map((eachPlan) => {
-          return {
-            ...eachPlan,
-            free: "2 months free",
-            // price: eachPlan.price * 10,
-          };
-        });
-      });
-    } else {
-      setPlansArr(plansArr);
-    }
+    setPlansArr(plansArr);
     setToggleBtn((prev) => !prev);
   }
   function handleDetails(price, title, plan) {
@@ -70,6 +58,13 @@ export default function SelectPlan({
               className="plan-card"
               key={i + 3}
               onClick={() => handleDetails(plan.price, plan.title, plan)}
+              style={{
+                border:
+                  planType === plan.title
+                    ? "1.5px solid hsl(243, 100%, 62%)"
+                    : "1px solid hsl(231, 11%, 63%)",
+                scale: planType === plan.title ? "1.1" : "1",
+              }}
             >
               <img className="plan-image" src={plan.image} alt={plan.title} />
               <div className="plan-texts">
@@ -77,7 +72,11 @@ export default function SelectPlan({
                 <p className="plan-price">{`$${
                   toggleBtn ? plan.price * 10 : plan.price
                 }/${toggleBtn ? "yr" : "mo"}`}</p>
-                {toggleBtn ? <p className="plan-year-free">{plan.free}</p> : ""}
+                {toggleBtn ? (
+                  <p className="plan-year-free">2 months free</p>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           );
