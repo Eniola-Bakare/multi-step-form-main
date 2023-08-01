@@ -38,7 +38,10 @@ export default function AddOn({
                   : "1.25px solid hsl(229, 24%, 87%)",
               }}
             >
-              <div className="addOn-check">
+              <div
+                className="addOn-check"
+                onClick={() => HandleAddOn(i, addOn)}
+              >
                 <input
                   type="checkbox"
                   className="addOn-check-input"
