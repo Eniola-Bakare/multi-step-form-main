@@ -40,7 +40,7 @@ export default function AddOn({
             >
               <div
                 className="addOn-check"
-                onClick={() => HandleAddOn(i, addOn)}
+                // onChange={() => HandleAddOn(i, addOn)}
               >
                 <input
                   type="checkbox"
