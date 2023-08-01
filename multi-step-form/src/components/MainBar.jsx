@@ -40,8 +40,6 @@ export default function MainBar({
   setAddOnState,
   addOns,
 }) {
-
-
   return (
     <main className="main">
       {curStep === 1 && (
@@ -88,7 +86,9 @@ export default function MainBar({
           setCurStep={setCurStep}
         />
       )}
-      {curStep === null && <Thanks name={name} curStep={curStep} handleCurStep={handleCurStep} />}
+      {curStep === null && (
+        <Thanks name={name} curStep={curStep} handleCurStep={handleCurStep} />
+      )}
 
       {curStep === null || (
         <Button
