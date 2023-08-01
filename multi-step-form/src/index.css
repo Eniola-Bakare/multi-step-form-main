@@ -237,6 +237,7 @@ body {
 .addOn-check {
   display: flex;
   gap: 15px;
+  cursor: pointer;
 }
 .addOn-text-title {
   font-weight: 500;
