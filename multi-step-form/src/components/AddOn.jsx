@@ -50,6 +50,7 @@ export default function AddOn({
                     accentColor: addOnState[i]
                       ? "hsl(243, 100%, 62%)"
                       : "white",
+                      cursor: "pointer"
                   }}
                   checked={addOnState[i]}
                   onChange={() => HandleAddOn(i, addOn)}
