@@ -3,6 +3,8 @@ import { useState } from "react";
 import arcade from "../assets/images/icon-arcade.svg";
 import advanced from "../assets/images/icon-advanced.svg";
 import pro from "../assets/images/icon-pro.svg";
+import { useFormContext } from "../contexts/FormContext";
+import Button from "./Button";
 
 const plans = [
   {
@@ -22,15 +24,17 @@ const plans = [
   },
 ];
 
-export default function SelectPlan({
-  price,
-  planType,
-  setPrice,
-  setPlanType,
-  toggleBtn,
-  setToggleBtn,
-  setPlanTypeObj,
-}) {
+export default function SelectPlan() {
+  const { labelPlan } = useFormContext();
+  const {
+    curStep,
+    planType,
+    setPrice,
+    setPlanType,
+    toggleBtn,
+    setToggleBtn,
+    setPlanTypeObj,
+  } = useFormContext();
   const [plansArr, setPlansArr] = useState([...plans]);
 
   function handleToggle() {
@@ -50,6 +54,20 @@ export default function SelectPlan({
           You have the option of monthly or year billing.
         </p>
       </div>
+      {labelPlan && (
+        <label
+          className="personalInfo-label error"
+          style={{
+            color: "red",
+            marginBottom: "10px",
+            fontWeight: "500",
+            marginTop: "20px",
+            alignSelf: "flex-start",
+          }}
+        >
+          * Selecting a plan is required.
+        </label>
+      )}
 
       <div className="plan-cards">
         {plansArr.map((plan, i) => {
@@ -109,6 +127,7 @@ export default function SelectPlan({
         >
           Yearly
         </span>
+        {/* {curStep === null || <Button />} */}
       </div>
     </section>
   );

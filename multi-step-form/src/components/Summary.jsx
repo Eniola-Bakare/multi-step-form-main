@@ -1,9 +1,8 @@
-export default function Summary({
-  planTypeObj,
-  toggleBtn,
-  addOnArrPrice,
-  setCurStep,
-}) {
+import { useFormContext } from "../contexts/FormContext";
+
+export default function Summary() {
+  const { planTypeObj, toggleBtn, addOnArrPrice, setCurStep } =
+    useFormContext();
   const price = toggleBtn ? planTypeObj.price * 10 : planTypeObj.price;
   const addOnTotal = addOnArrPrice.reduce((acc, cur) => {
     return toggleBtn ? (acc += cur.price * 10) : (acc += cur.price);

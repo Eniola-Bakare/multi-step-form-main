@@ -20,9 +20,9 @@ body {
   display: grid;
   align-items: center;
   width: 95%;
-  height: 100%;
+  /* height: 100%; */
   grid-template-columns: 1fr 2fr;
-  column-gap: 60px;
+  /* column-gap: 50px; */
 
   padding: 10px;
 
@@ -41,6 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 30px;
+  padding-right: 0;
 }
 
 .step-div {
@@ -90,7 +91,7 @@ body {
 .main {
   padding-block: 30px;
   width: 70%;
-  height: 80%;
+  /* height: 80%; */
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -106,7 +107,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 80%;
+  /* height: 80%; */
 }
 .personalInfo-title,
 .selectPlan-title,
@@ -418,7 +419,7 @@ body {
     width: 80%;
   }
 }
-
+/* 
 @media screen and (max-width: 710px) {
   .main {
     padding-block: 18px;
@@ -428,9 +429,9 @@ body {
     column-gap: 0px;
     padding: 20px;
   }
-}
+} */
 
-@media screen and (max-width: 676px) {
+@media screen and (max-width: 767px) {
   #root {
     height: 0%;
   }
@@ -460,17 +461,12 @@ body {
   }
   .main {
     width: 100%;
-    padding: 20px;
+    padding: 50px;
     margin-bottom: 70px;
     border-radius: 10px;
     box-shadow: -8px 25px 36px 11px rgba(0, 0, 0, 0.24);
   }
-  .personalInfo-container,
-  .selectPlan-container,
-  .addOn-container,
-  .summary-container,
-  .thankYou-container {
-  }
+
   .personalInfo-text,
   .selectPlan-text,
   .addOn-title-text,
@@ -522,11 +518,19 @@ body {
   }
 }
 
+@media screen and (max-width: 478px) {
+  .main {
+    padding: 25px;
+  }
+}
 @media screen and (max-width: 375px) {
   body {
     min-width: 374px;
   }
   .side-bar {
     padding-bottom: 0;
+  }
+  .main {
+    padding: 20px;
   }
 }

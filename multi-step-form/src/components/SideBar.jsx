@@ -1,11 +1,14 @@
-export default function SideBar({ steps, curStep, addClick }) {
+import { useFormContext } from "../contexts/FormContext";
+
+export default function SideBar() {
+  const { steps, curStep, handleCurStep } = useFormContext();
   return (
     <aside className="side-bar">
       {steps.map((step) => (
         <div
           className="step-div"
           key={step.id}
-          onClick={() => addClick(step.id)}
+          onClick={() => handleCurStep(step.id)}
         >
           <div
             className={`step-number-div ${step.id === curStep ? "active" : ""}`}

@@ -1,10 +1,8 @@
-export default function Button({
-  curStep,
-  handleMinus,
-  handlePlus,
-  handleConfirm,
-  personalInfo
-}) {
+import { useFormContext } from "../contexts/FormContext";
+
+export default function Button() {
+  const { curStep, handleMinus, handlePlus, handleConfirm, personalInfo } =
+    useFormContext();
   return (
     <section className={`btn-div ${curStep > 1 ? "plus" : ""}`}>
       {curStep !== 1 && (

@@ -1,10 +1,15 @@
-export default function AddOn({
-  toggleBtn,
-  setAddOnArrPrice,
-  addOnState,
-  setAddOnState,
-  addOns,
-}) {
+import { useFormAction } from "react-router-dom";
+import Button from "./Button";
+
+export default function AddOn() {
+  const {
+    toggleBtn,
+    setAddOnArrPrice,
+    addOnState,
+    setAddOnState,
+    addOns,
+    curStep,
+  } = useFormAction();
   function HandleAddOn(id, addOn) {
     setAddOnState((prev) => {
       return prev.map((each, i) => (i === id ? !each : each));
@@ -37,11 +42,9 @@ export default function AddOn({
                   ? "1.5px solid hsl(243, 100%, 62%)"
                   : "1.25px solid hsl(229, 24%, 87%)",
               }}
+              onClick={() => HandleAddOn(i, addOn)}
             >
-              <div
-                className="addOn-check"
-                // onChange={() => HandleAddOn(i, addOn)}
-              >
+              <div className="addOn-check">
                 <input
                   type="checkbox"
                   className="addOn-check-input"
@@ -50,10 +53,10 @@ export default function AddOn({
                     accentColor: addOnState[i]
                       ? "hsl(243, 100%, 62%)"
                       : "white",
-                      cursor: "pointer"
+                    cursor: "pointer",
                   }}
                   checked={addOnState[i]}
-                  onChange={() => HandleAddOn(i, addOn)}
+                  // onChange={() => HandleAddOn(i, addOn)}
                 />
                 <div className="addOn-text">
                   <p className="addOn-text-title">{addOn.title}</p>
@@ -68,6 +71,7 @@ export default function AddOn({
           );
         })}
       </div>
+      {/* {curStep === null || <Button />} */}
     </section>
   );
 }

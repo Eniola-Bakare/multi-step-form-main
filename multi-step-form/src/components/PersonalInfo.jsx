@@ -1,15 +1,23 @@
-export default function PersonalInfo({
-  name,
-  email,
-  number,
-  setName,
-  setNumber,
-  setEmail,
+import { useFormContext } from "../contexts/FormContext";
+import Button from "./Button";
 
-  labelEmail,
-  labelName,
-  labelPhone,
-}) {
+export default function PersonalInfo() {
+  const {
+    curStep,
+    firstName,
+    lastName,
+    setFirstName,
+    setLastName,
+    email,
+    number,
+    setNumber,
+    setEmail,
+
+    labelEmail,
+    labelFirstName,
+    labelLastName,
+    labelPhone,
+  } = useFormContext();
   return (
     <section className="personalInfo-container">
       <div className="personalInfo-title-div">
@@ -20,25 +28,46 @@ export default function PersonalInfo({
       </div>
 
       <form className="personalInfo-Form">
-        <label className="personalInfo-label">Name</label>
+        <label className="personalInfo-label">First Name</label>
         <input
           className="personalInfo-input"
           type="text"
           placeholder="e.g. Stephen King"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
           style={{
             border: ` ${
-              labelName ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"
+              labelFirstName ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"
             }`,
           }}
         />
-        {labelName && (
+        {labelFirstName && (
           <label
             className="personalInfo-label error"
             style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
           >
-            * First Name and Last Name is required.
+            * First Name is required.
+          </label>
+        )}
+        <label className="personalInfo-label">Last Name</label>
+        <input
+          className="personalInfo-input"
+          type="text"
+          placeholder="e.g. Stephen King"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          style={{
+            border: ` ${
+              labelLastName ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"
+            }`,
+          }}
+        />
+        {labelLastName && (
+          <label
+            className="personalInfo-label error"
+            style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
+          >
+            * Last Name is required.
           </label>
         )}
 
@@ -86,6 +115,7 @@ export default function PersonalInfo({
           </label>
         )}
       </form>
+      {/* {curStep === null || <Button />} */}
     </section>
   );
 }
