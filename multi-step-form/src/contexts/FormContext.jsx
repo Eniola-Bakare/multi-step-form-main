@@ -179,6 +179,11 @@ function FormContextProvider({ children }) {
         labelPhone,
         labelPlan,
 
+        setLabelFirstName,
+        setLabelLastName,
+        setLabelEmail,
+        setLabelPhone,
+
         price,
         planType,
         setPrice,

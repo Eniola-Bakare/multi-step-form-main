@@ -16,6 +16,7 @@ export default function PersonalInfo() {
     labelLastName,
     labelPhone,
   } = useFormContext();
+
   return (
     <section className="personalInfo-container">
       <div className="personalInfo-title-div">
@@ -26,57 +27,78 @@ export default function PersonalInfo() {
       </div>
 
       <form className="personalInfo-Form">
-        <label className="personalInfo-label">First Name</label>
-        <input
-          className="personalInfo-input"
-          type="text"
-          placeholder="e.g. Stephen"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          style={{
-            border: ` ${
-              labelFirstName ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"
-            }`,
-          }}
-        />
-        {labelFirstName && (
-          <label
-            className="personalInfo-label error"
-            style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
-          >
-            {`${
-              firstName.length > 0 && firstName.length <= 2
-                ? " * First Name must be at least three letters."
-                : "First Name is required"
-            }`}
-          </label>
-        )}
-        <label className="personalInfo-label">Last Name</label>
-        <input
-          className="personalInfo-input"
-          type="text"
-          placeholder="e.g. King"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          style={{
-            border: ` ${
-              labelLastName ? "1px solid red" : "1px solid hsl(229, 24%, 87%)"
-            }`,
-          }}
-        />
-        {labelLastName && (
-          <label
-            className="personalInfo-label error"
-            style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
-          >
-            {`${
-              lastName.length > 0 && lastName.length <= 2
-                ? " * Last Name must be at least three letters."
-                : "Last Name is required"
-            }`}
-          </label>
-        )}
-
+        <div className="personalInfo-Form-names-div">
+          <div className="personalInfo-Form-names first">
+            <label className="personalInfo-label">First Name</label>
+            <input
+              className="personalInfo-input"
+              type="text"
+              placeholder="e.g. Stephen"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              style={{
+                border: ` ${
+                  labelFirstName
+                    ? "1px solid red"
+                    : "1px solid hsl(229, 24%, 87%)"
+                }`,
+              }}
+            />
+            {labelFirstName && (
+              <label
+                className="personalInfo-label error"
+                style={{
+                  color: "red",
+                  marginBottom: "10px",
+                  fontWeight: "500",
+                }}
+              >
+                {`${
+                  firstName.length >= 3
+                    ? ""
+                    : firstName.length > 0 && firstName.length <= 2
+                    ? " * First Name must be at least three letters."
+                    : "First Name is required"
+                }`}
+              </label>
+            )}
+          </div>
+          <div className="personalInfo-Form-names last">
+            <label className="personalInfo-label">Last Name</label>
+            <input
+              className="personalInfo-input"
+              type="text"
+              placeholder="e.g. King"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              style={{
+                border: ` ${
+                  labelLastName
+                    ? "1px solid red"
+                    : "1px solid hsl(229, 24%, 87%)"
+                }`,
+              }}
+            />
+            {labelLastName && (
+              <label
+                className="personalInfo-label error"
+                style={{
+                  color: "red",
+                  marginBottom: "10px",
+                  fontWeight: "500",
+                }}
+              >
+                {`${
+                  lastName.length >= 3
+                    ? ""
+                    : firstName.length > 0 && firstName.length <= 2
+                    ? " * First Name must be at least three letters."
+                    : "First Name is required"
+                }`}
+              </label>
+            )}
+          </div>
+        </div>
         <label className="personalInfo-label">Email Address</label>
         <input
           className="personalInfo-input"

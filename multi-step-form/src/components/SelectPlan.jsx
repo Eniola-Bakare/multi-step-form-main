@@ -59,7 +59,7 @@ export default function SelectPlan() {
             color: "red",
             marginBottom: "10px",
             fontWeight: "500",
-            marginTop: "20px",
+            marginTop: "10px",
             alignSelf: "flex-start",
           }}
         >
@@ -79,7 +79,7 @@ export default function SelectPlan() {
                   planType === plan.title
                     ? "1.5px solid hsl(243, 100%, 62%)"
                     : "1px solid hsl(231, 11%, 63%)",
-                scale: planType === plan.title ? "1.1" : "1",
+                scale: planType === plan.title ? "1.085" : "1",
               }}
             >
               <img className="plan-image" src={plan.image} alt={plan.title} />
