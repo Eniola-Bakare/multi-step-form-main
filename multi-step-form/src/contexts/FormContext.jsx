@@ -50,12 +50,16 @@ function FormContextProvider({ children }) {
   function handleCurStep(setStep) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!firstName && !lastName) {
+    if (!firstName || firstName.length < 3) {
       setLabelFirstName(true);
-      setLabelLastName(true);
       return;
     } else {
       setLabelFirstName(false);
+    }
+    if (!lastName || lastName.length < 3) {
+      setLabelLastName(true);
+      return;
+    } else {
       setLabelLastName(false);
     }
     if (!email || email.length === 0 || email.length > 0) {
@@ -106,13 +110,13 @@ function FormContextProvider({ children }) {
   function handlePlus({ firstName, lastName, email, number }) {
     ///////////////////////////////////////////////////////////////// Validation for step 1
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!firstName) {
+    if (!firstName || firstName.length < 3) {
       setLabelFirstName(true);
       return;
     } else {
       setLabelFirstName(false);
     }
-    if (!lastName) {
+    if (!lastName || lastName.length < 3) {
       setLabelLastName(true);
       return;
     } else {

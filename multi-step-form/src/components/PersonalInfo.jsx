@@ -1,9 +1,7 @@
 import { useFormContext } from "../contexts/FormContext";
-import Button from "./Button";
 
 export default function PersonalInfo() {
   const {
-    curStep,
     firstName,
     lastName,
     setFirstName,
@@ -32,7 +30,7 @@ export default function PersonalInfo() {
         <input
           className="personalInfo-input"
           type="text"
-          placeholder="e.g. Stephen King"
+          placeholder="e.g. Stephen"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           style={{
@@ -46,14 +44,18 @@ export default function PersonalInfo() {
             className="personalInfo-label error"
             style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
           >
-            * First Name is required.
+            {`${
+              firstName.length > 0 && firstName.length <= 2
+                ? " * First Name must be at least three letters."
+                : "First Name is required"
+            }`}
           </label>
         )}
         <label className="personalInfo-label">Last Name</label>
         <input
           className="personalInfo-input"
           type="text"
-          placeholder="e.g. Stephen King"
+          placeholder="e.g. King"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           style={{
@@ -67,7 +69,11 @@ export default function PersonalInfo() {
             className="personalInfo-label error"
             style={{ color: "red", marginBottom: "10px", fontWeight: "500" }}
           >
-            * Last Name is required.
+            {`${
+              lastName.length > 0 && lastName.length <= 2
+                ? " * Last Name must be at least three letters."
+                : "Last Name is required"
+            }`}
           </label>
         )}
 
@@ -115,7 +121,6 @@ export default function PersonalInfo() {
           </label>
         )}
       </form>
-      {/* {curStep === null || <Button />} */}
     </section>
   );
 }

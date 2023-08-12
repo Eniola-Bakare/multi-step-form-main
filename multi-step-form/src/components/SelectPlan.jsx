@@ -4,7 +4,6 @@ import arcade from "../assets/images/icon-arcade.svg";
 import advanced from "../assets/images/icon-advanced.svg";
 import pro from "../assets/images/icon-pro.svg";
 import { useFormContext } from "../contexts/FormContext";
-import Button from "./Button";
 
 const plans = [
   {
@@ -27,7 +26,6 @@ const plans = [
 export default function SelectPlan() {
   const { labelPlan } = useFormContext();
   const {
-    curStep,
     planType,
     setPrice,
     setPlanType,
@@ -127,7 +125,6 @@ export default function SelectPlan() {
         >
           Yearly
         </span>
-        {/* {curStep === null || <Button />} */}
       </div>
     </section>
   );

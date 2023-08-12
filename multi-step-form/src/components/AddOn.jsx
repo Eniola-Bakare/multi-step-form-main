@@ -1,15 +1,8 @@
-import { useFormAction } from "react-router-dom";
-import Button from "./Button";
+import { useFormContext } from "../contexts/FormContext";
 
 export default function AddOn() {
-  const {
-    toggleBtn,
-    setAddOnArrPrice,
-    addOnState,
-    setAddOnState,
-    addOns,
-    curStep,
-  } = useFormAction();
+  const { toggleBtn, setAddOnArrPrice, addOnState, setAddOnState, addOns } =
+    useFormContext();
   function HandleAddOn(id, addOn) {
     setAddOnState((prev) => {
       return prev.map((each, i) => (i === id ? !each : each));
@@ -71,7 +64,6 @@ export default function AddOn() {
           );
         })}
       </div>
-      {/* {curStep === null || <Button />} */}
     </section>
   );
 }
