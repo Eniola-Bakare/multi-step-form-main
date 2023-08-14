@@ -58,7 +58,7 @@ export default function PersonalInfo() {
                     ? ""
                     : firstName.length > 0 && firstName.length <= 2
                     ? " * First Name must be at least three letters."
-                    : "First Name is required"
+                    : "* First Name is required"
                 }`}
               </label>
             )}
@@ -91,9 +91,9 @@ export default function PersonalInfo() {
                 {`${
                   lastName.length >= 3
                     ? ""
-                    : firstName.length > 0 && firstName.length <= 2
-                    ? " * First Name must be at least three letters."
-                    : "First Name is required"
+                    : lastName.length > 0 && lastName.length <= 2
+                    ? " * Last Name must be at least three letters."
+                    : "* Last Name is required"
                 }`}
               </label>
             )}

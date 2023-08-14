@@ -152,7 +152,8 @@ body {
   outline-color: hsl(243, 100%, 62%);
 }
 .personalInfo-label.error {
-  align-self: flex-end;
+  align-self: flex-start;
+  font-size: 10px;
 }
 .personalInfo-Form-names-div {
   display: grid;
@@ -186,6 +187,7 @@ body {
   padding-bottom: 20px;
   cursor: pointer;
   height: 90%;
+  transition: all .75s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .plan-card:hover {
   transform: scale(1.1);
@@ -497,7 +499,7 @@ body {
     flex-direction: column;
     margin-top: 30px;
   }
-  .plan-card{
+  .plan-card {
     width: 100%;
   }
   .plan-texts {
