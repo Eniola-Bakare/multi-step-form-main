@@ -1,17 +1,15 @@
 # Frontend Mentor - Multi-step form solution
 
-This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
-  - [The challenge](#the-challenge)
-  - [Links](#links)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+- [The challenge](#the-challenge)
+- [Links](#links)
+- [Built with](#built-with)
+- [What I learned](#what-i-learned)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-
 
 ### The challenge
 
@@ -29,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL:(https://github.com/Eniola-Bakare/multi-step-form-main)
-- Live Site URL: [Add live site URL here]https://eniola-bakare.github.io/multi-step-form-main/)
+- Solution URL: [https://github.com/Eniola-Bakare/multi-step-form-main](https://github.com/Eniola-Bakare/multi-step-form-main)
+- Live Site URL: [https://eniola-bakare.github.io/multi-step-form-main/](https://eniola-bakare.github.io/multi-step-form-main/)
 
 ### Built with
 
@@ -46,9 +44,9 @@ Users should be able to:
 I particulalry learnt about state management across the app life cycle. I saw the down side to prop drilling through state lifting, and in turn, refactored to use Context Api when I learnt about it.
 
 ## Author
-- Frontend Mentor - [@eniolabakare](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@eebakare](https://www.twitter.com/eebakare)
 
+- Frontend Mentor - [@eniolabakare](https://www.frontendmentor.io/profile/eniolabakare)
+- Twitter - [@eebakare](https://www.twitter.com/eebakare)
 
 ## Acknowledgments
 
