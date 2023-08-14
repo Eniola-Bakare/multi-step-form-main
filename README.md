@@ -45,7 +45,7 @@ I particulalry learnt about state management across the app life cycle. I saw th
 
 ## Author
 
-- Frontend Mentor - [@eniolabakare](https://www.frontendmentor.io/profile/eniolabakare)
+- Frontend Mentor - [@eniolabakare](https://www.frontendmentor.io/profile/Eniola-Bakare)
 - Twitter - [@eebakare](https://www.twitter.com/eebakare)
 
 ## Acknowledgments
